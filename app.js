@@ -8,13 +8,27 @@ if(process.env.NODE_ENV !== "production") {
     require("dotenv").config({path:"config/config.env"});
 }
 
+const allowedOrigins = ['http://localhost:3000', 'https://tocial.netlify.app'];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  };
+
+
 
 //Using middlewares
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
-app.use(cors({ origin: 'https://tocial.netlify.app' }));
-app.use(cors());
+// app.use(cors({ origin: 'https://tocial.netlify.app' }));
+// app.use(cors());
+app.use(cors(corsOptions));
 
 // Importing routes
 const user = require("./routes/user");
