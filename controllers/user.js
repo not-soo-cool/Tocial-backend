@@ -120,7 +120,7 @@ exports.logoutUser = async(req, res)=>{
         res.status(200).cookie("token", null, {
             expires: new Date(
                 Date.now()),
-                httpOnly: true,
+                // httpOnly: true,
         }).json({
             success:true,
             message:"Logged out",
