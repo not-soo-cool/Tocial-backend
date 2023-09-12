@@ -18,8 +18,10 @@ const corsOptions = {
         callback(new Error('Not allowed by CORS'));
       }
     },
+    credentials: true,
   };
 
+app.use(cors(corsOptions));
 
 
 //Using middlewares
@@ -28,7 +30,6 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 // app.use(cors({ origin: 'https://tocial.netlify.app' }));
 // app.use(cors());
-app.use(cors(corsOptions));
 
 // Importing routes
 const user = require("./routes/user");
