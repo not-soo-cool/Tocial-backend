@@ -8,19 +8,24 @@ if(process.env.NODE_ENV !== "production") {
     require("dotenv").config({path:"config/config.env"});
 }
 
-const allowedOrigins = ['http://localhost:3000', 'https://tocial.netlify.app'];
+// const allowedOrigins = ['http://localhost:3000', 'https://tocial.netlify.app'];
+
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//       if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//     credentials: true,
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   };
 
 const corsOptions = {
-    origin: function (origin, callback) {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  };
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
 
 app.use(cors(corsOptions));
 
