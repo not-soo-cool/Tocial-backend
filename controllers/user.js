@@ -32,6 +32,7 @@ exports.register = async (req, res) => {
         });
 
         const token = await user.generateToken();
+        console.log(token);
 
         const options = {
             expires:new Date(Date.now()+90*24*60*60*1000),
@@ -89,6 +90,7 @@ exports.loginUser = async(req, res)=>{
         };
 
         const token = await user.generateToken();
+        console.log(token);
 
         const options = {
             expires:new Date(Date.now()+90*24*60*60*1000),
