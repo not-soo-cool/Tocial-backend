@@ -1,5 +1,5 @@
 const app = require("./app");
-const http = require('ht')
+// const http = require('http');
 const connectDatabase = require("./config/database");
 const cloudinary = require("cloudinary");
 

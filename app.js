@@ -28,7 +28,7 @@ if(process.env.NODE_ENV !== "production") {
 // };
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://tocial.netlify.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 
